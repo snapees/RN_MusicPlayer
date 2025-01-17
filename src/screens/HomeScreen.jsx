@@ -4,6 +4,7 @@ import React from 'react';
 import {colors} from '../constants/colors';
 import Header from '../components/Header';
 import SongCardWithCategory from '../components/SongCardWithCategory';
+import FloatingPlayer from '../components/FloatingPlayer';
 
 const HomeScreen = () => {
   return (
@@ -16,6 +17,7 @@ const HomeScreen = () => {
         renderItem={SongCardWithCategory}
         contentContainerStyle={{paddingBottom: 400}}
       />
+      <FloatingPlayer />
     </View>
   );
 };

@@ -11,6 +11,7 @@ import {
 } from './PlayerControls';
 import {useSharedValue} from 'react-native-reanimated';
 import {Slider} from 'react-native-awesome-slider';
+import MovingText from './MovingText';
 
 const imageUrl =
   'https://ncsmusic.s3.eu-west-1.amazonaws.com/tracks/000/001/820/325x325/gimme-1734570059-e67zlEsw2Y.png';
@@ -46,7 +47,12 @@ const FloatingPlayer = () => {
       <TouchableOpacity style={styles.container} activeOpacity={0.85}>
         <Image source={{uri: imageUrl}} style={styles.coverImage} />
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>Chauff & Dust</Text>
+          <MovingText
+            text={'Chauff & Dust And Alan Walker'}
+            animationThreshold={15}
+            style={styles.title}
+          />
+          {/* <Text style={styles.title}>Chauff & Dust And Alan Walker</Text> */}
           <Text style={styles.artist}>Alan Walker</Text>
         </View>
         <View style={styles.playerControlsContainer}>
@@ -71,8 +77,10 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     flex: 1,
-    // flexDirection: 'column',
     paddingHorizontal: spacing.sm,
+    overflow: 'hidden',
+    marginLeft: spacing.sm,
+    marginRight: spacing.lg,
   },
   title: {
     color: colors.textPrimary,

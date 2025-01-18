@@ -12,14 +12,19 @@ import {
 import {useSharedValue} from 'react-native-reanimated';
 import {Slider} from 'react-native-awesome-slider';
 import MovingText from './MovingText';
+import {useNavigation} from '@react-navigation/native';
 
 const imageUrl =
   'https://ncsmusic.s3.eu-west-1.amazonaws.com/tracks/000/001/820/325x325/gimme-1734570059-e67zlEsw2Y.png';
 
 const FloatingPlayer = () => {
+  const navigation = useNavigation();
   const progress = useSharedValue(30);
   const min = useSharedValue(0);
   const max = useSharedValue(1);
+  const handleOpenPlayerScreen = () => {
+    navigation.navigate('Player');
+  };
   return (
     <View>
       <View style={{zIndex: 1}}>
@@ -44,7 +49,10 @@ const FloatingPlayer = () => {
           // )}
         />
       </View>
-      <TouchableOpacity style={styles.container} activeOpacity={0.85}>
+      <TouchableOpacity
+        style={styles.container}
+        activeOpacity={0.85}
+        onPress={handleOpenPlayerScreen}>
         <Image source={{uri: imageUrl}} style={styles.coverImage} />
         <View style={styles.titleContainer}>
           <MovingText

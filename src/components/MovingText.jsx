@@ -1,6 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useEffect} from 'react';
 import Animated, {
+  cancelAnimation,
   Easing,
   useAnimatedStyle,
   useSharedValue,
@@ -32,6 +33,10 @@ const MovingText = ({text, animationThreshold, style}) => {
     //   duration: 5000,
     //   easing: Easing.linear,
     // });
+    return () => {
+      cancelAnimation(translateX);
+      translateX.value = 0;
+    };
   }, [translateX, text, animationThreshold, textWidth, shouldAnimate]);
 
   const animatedStyle = useAnimatedStyle(() => {

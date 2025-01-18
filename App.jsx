@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import LikeScreen from './src/screens/LikeScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,10 +13,12 @@ const App = () => {
     <GestureHandlerRootView style={{flex: 1}}>
       <NavigationContainer>
         <Stack.Navigator
+          initialRouteName="Like"
           screenOptions={{
             headerShown: false,
           }}>
           <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Like" component={LikeScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </GestureHandlerRootView>

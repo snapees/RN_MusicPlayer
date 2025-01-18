@@ -52,7 +52,6 @@ const FloatingPlayer = () => {
             animationThreshold={15}
             style={styles.title}
           />
-          {/* <Text style={styles.title}>Chauff & Dust And Alan Walker</Text> */}
           <Text style={styles.artist}>Alan Walker</Text>
         </View>
         <View style={styles.playerControlsContainer}>

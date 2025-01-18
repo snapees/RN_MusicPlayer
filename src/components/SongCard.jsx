@@ -7,11 +7,13 @@ import {fontFamilies} from '../constants/Fonts';
 const imageUrl =
   'https://ncsmusic.s3.eu-west-1.amazonaws.com/tracks/000/001/825/325x325/ncs-new-years-mix-2024-with-niviro-1735606855-AonYb4qwxc.jpg';
 
-const SongCard = () => {
+const SongCard = ({containerStyle, imageStyle}) => {
   return (
-    <TouchableOpacity style={styles.container}>
-      <Image source={{uri: imageUrl}} style={styles.coverImage} />
-      <Text style={styles.title}>New Years Mix 2024</Text>
+    <TouchableOpacity style={[styles.container, containerStyle]}>
+      <Image source={{uri: imageUrl}} style={[styles.coverImage, imageStyle]} />
+      <Text style={styles.title} numberOfLines={1}>
+        New Years Mix 2024
+      </Text>
       <Text style={styles.artist}>Alan Walker</Text>
     </TouchableOpacity>
   );
@@ -20,8 +22,8 @@ const SongCard = () => {
 const styles = StyleSheet.create({
   container: {
     // paddingHorizontal: spacing.lg,
-    height: 320,
-    width: 250,
+    // height: 320,
+    // width: 270,
   },
   coverImage: {
     width: 250,

@@ -11,7 +11,6 @@ const HomeScreen = () => {
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.background} />
       <Header />
-      {/* <SongCardWithCategory /> */}
       <FlatList
         data={[1, 2, 3, 4, 5]}
         renderItem={SongCardWithCategory}

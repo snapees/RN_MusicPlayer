@@ -12,12 +12,20 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import {fontSize, iconSizes, spacing} from '../constants/dimensions';
 import {fontFamilies} from '../constants/Fonts';
+import PlayerRepeatToggle from '../components/PlayerRepeatToggle';
+import PlayerShuffleToggle from '../components/PlayerShuffleToggle';
+import PlayerProgressBar from '../components/PlayerProgressBar';
+import {
+  GoToNextButton,
+  GoToPreviousButton,
+  PlayPauseButton,
+} from '../components/PlayerControls';
 
 const imageUrl =
   'https://ncsmusic.s3.eu-west-1.amazonaws.com/tracks/000/001/833/325x325/mortals-funk-remix-sped-up-1737075655-r7mO3BxdHM.jpg';
 const PlayerScreen = () => {
-  const isLiked = true;
-  const isMute = true;
+  const isLiked = false;
+  const isMute = false;
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.background} />
@@ -58,13 +66,26 @@ const PlayerScreen = () => {
 
       {/* player control continer */}
       <View style={styles.playerControlContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity style={styles.volumeWrapper}>
           <Feather
             name={isMute ? 'volume-x' : 'volume-1'}
             color={colors.iconSecondary}
             size={iconSizes.md}
           />
         </TouchableOpacity>
+        <View style={styles.repeatShuffleWrapper}>
+          <PlayerRepeatToggle />
+          <PlayerShuffleToggle />
+        </View>
+      </View>
+
+      {/* player progress bar */}
+      <PlayerProgressBar />
+
+      <View style={styles.playPauseContainer}>
+        <GoToPreviousButton size={iconSizes.xl} />
+        <PlayPauseButton size={iconSizes.xl} />
+        <GoToNextButton size={iconSizes.xl} />
       </View>
     </View>
   );
@@ -122,7 +143,25 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 
-  playerControlContainer: {},
+  playerControlContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: spacing.lg,
+  },
+  volumeWrapper: {
+    flex: 1,
+  },
+  repeatShuffleWrapper: {
+    flexDirection: 'row',
+    gap: spacing.md,
+  },
+  playPauseContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: spacing.xl,
+    marginTop: spacing.xl,
+  },
 });
 
 export default PlayerScreen;

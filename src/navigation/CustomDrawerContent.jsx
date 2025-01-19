@@ -15,7 +15,7 @@ const ProfileIcon = () => (
     name={'user'}
     color={colors.iconSecondary}
     size={iconSizes.md}
-    style={{marginRight: spacing.md}}
+    style={{marginRight: spacing.sm, marginLeft: spacing.sm}}
   />
 );
 
@@ -24,7 +24,7 @@ const HeartIcon = () => (
     name={'hearto'}
     color={colors.iconSecondary}
     size={iconSizes.md}
-    style={{marginRight: spacing.md}}
+    style={{marginRight: spacing.mmd}}
   />
 );
 
@@ -33,7 +33,7 @@ const LanguageIcon = () => (
     name={'earth'}
     color={colors.iconSecondary}
     size={iconSizes.md}
-    style={{marginRight: spacing.md}}
+    style={{marginRight: spacing.mmd}}
   />
 );
 
@@ -42,7 +42,7 @@ const MessageIcon = () => (
     name={'envelope-o'}
     color={colors.iconSecondary}
     size={iconSizes.md}
-    style={{marginRight: spacing.md}}
+    style={{marginRight: spacing.mmd}}
   />
 );
 

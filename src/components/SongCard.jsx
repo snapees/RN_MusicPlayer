@@ -6,13 +6,13 @@ import {colors} from '../constants/colors';
 import {fontFamilies} from '../constants/Fonts';
 import TrackPlayer from 'react-native-track-player';
 
-const SongCard = ({item, containerStyle, imageStyle}) => {
-  const handlePlay = async item => {
-    console.log('Playing item', item);
-    // await TrackPlayer.add(item);
-    // await TrackPlayer.play();
-    await TrackPlayer.pause();
-  };
+const SongCard = ({item, containerStyle, imageStyle, handlePlay}) => {
+  // const handlePlay = async item => {
+  //   // console.log('Playing item', item);
+  //   // await TrackPlayer.add(item);
+  //   // await TrackPlayer.play();
+  //   // await TrackPlayer.pause();
+  // };
   return (
     <TouchableOpacity
       style={[styles.container, containerStyle]}

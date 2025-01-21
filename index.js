@@ -7,10 +7,10 @@ import TrackPlayer from 'react-native-track-player';
 
 import App from './App';
 import {name as appName} from './app.json';
-import service from './service';
+import PlaybackService from './src/service/PlaybackService';
 
 AppRegistry.registerComponent(appName, () => App);
-TrackPlayer.registerPlaybackService(() => service);
+TrackPlayer.registerPlaybackService(() => PlaybackService);
 
 // appregistry registercomponent wasn t called after installing react native track player
 

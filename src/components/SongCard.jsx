@@ -1,15 +1,22 @@
+/* eslint-disable no-shadow */
 import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {fontSize, spacing} from '../constants/dimensions';
 import {colors} from '../constants/colors';
 import {fontFamilies} from '../constants/Fonts';
-
-const imageUrl =
-  'https://ncsmusic.s3.eu-west-1.amazonaws.com/tracks/000/001/825/325x325/ncs-new-years-mix-2024-with-niviro-1735606855-AonYb4qwxc.jpg';
+import TrackPlayer from 'react-native-track-player';
 
 const SongCard = ({item, containerStyle, imageStyle}) => {
+  const handlePlay = async item => {
+    console.log('Playing item', item);
+    // await TrackPlayer.add(item);
+    // await TrackPlayer.play();
+    await TrackPlayer.pause();
+  };
   return (
-    <TouchableOpacity style={[styles.container, containerStyle]}>
+    <TouchableOpacity
+      style={[styles.container, containerStyle]}
+      onPress={() => handlePlay(item)}>
       <Image
         source={{uri: item?.artwork}}
         style={[styles.coverImage, imageStyle]}
